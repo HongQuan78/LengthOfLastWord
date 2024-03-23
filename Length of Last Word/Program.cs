@@ -2,25 +2,20 @@
 {
     static void Main()
     {
-        string s = "a";
+        string s = "   fly me   to   the moon  ";
         Console.WriteLine(LengthOfLastWord(s));
     }
 
     static int LengthOfLastWord(string s)
     {
-        int lastSpaceIndex = 0;
         s = s.Trim();
-        for (int i = 0; i < s.Length; i++)
+        int result = 0;
+        for(int i = s.Length - 1; i >= 0; i--)
         {
-            if (s[i] == ' ')
-            {
-                lastSpaceIndex = i;
-            }
+            if (s[i] == ' ') { return result; }
+            result++;
         }
-        if(lastSpaceIndex == 0)
-        {
-            return s.Length;
-        }
-        return  s.Length - lastSpaceIndex - 1;
+
+        return result;
     }
 }
